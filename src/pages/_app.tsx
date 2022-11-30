@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 import Layout from '../components/Layout';
 
