@@ -28,10 +28,16 @@ const GlobalStyles = createGlobalStyle`
         --light-border: #565656;
     }
 
+    html, body, #__next {
+        width: 100%;
+        height: 100%;
+    }
+
     body {
         font-size: 1.6rem;
-        background: ${({ theme }) => theme.colors.BG_L2};
-        color: ${({ theme }) => theme.colors.TEXT_L2};
+        background: ${({ theme }) => theme.colors.BG_L1};
+        color: ${({ theme }) => theme.colors.TEXT_L1};
+        overflow-x: hidden;
     }
 `;
 
