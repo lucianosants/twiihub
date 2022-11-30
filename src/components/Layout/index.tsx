@@ -1,12 +1,13 @@
 import { ReactNode } from 'react';
+import { StyledContainer } from './styled';
 interface Props {
 	children: ReactNode;
 }
 
 export default function Layout(props: Props) {
 	return (
-		<div>
+		<StyledContainer>
 			<main>{props.children}</main>
-		</div>
+		</StyledContainer>
 	);
 }
