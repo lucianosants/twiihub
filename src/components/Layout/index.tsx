@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import Header from './Header';
 import { StyledContainer } from './styled';
 interface Props {
 	children: ReactNode;
@@ -7,6 +8,7 @@ interface Props {
 export default function Layout(props: Props) {
 	return (
 		<StyledContainer>
+			<Header />
 			<main>{props.children}</main>
 		</StyledContainer>
 	);
