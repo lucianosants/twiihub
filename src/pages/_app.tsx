@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import { useContext, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
+import Layout from '../components/Layout';
 
 import ProviderWrapper, { ThemeAppContext } from '../context/ThemeAppContext';
 import GlobalStyles from '../styles/GlobalStyles';
@@ -14,7 +15,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 		<>
 			<ThemeProvider theme={context.theme === 'dark' ? dark : light}>
 				<GlobalStyles />
-				<Component {...pageProps} />
+
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
 			</ThemeProvider>
 		</>
 	);

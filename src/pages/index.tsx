@@ -12,9 +12,9 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<main>
+			<div>
 				<h2>TwiiHub</h2>
-			</main>
+			</div>
 		</div>
 	);
 }
