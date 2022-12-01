@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
+import { StyledNav } from './styled';
+
 export default function Nav() {
 	const [currentPage, setCurrentPage] = useState('/');
 	const router = useRouter();
@@ -24,13 +26,13 @@ export default function Nav() {
 	}, [router.route]);
 
 	return (
-		<nav>
+		<StyledNav>
 			<Link id='repos' href='/'>
 				Repositories
 			</Link>
 			<Link id='about' href='/about'>
 				About project
 			</Link>
-		</nav>
+		</StyledNav>
 	);
 }
