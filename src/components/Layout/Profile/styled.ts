@@ -11,6 +11,9 @@ const StyledProfile = styled.aside`
 	border: 1px solid ${({ theme }) => theme.colors.BORDER};
 	background-color: ${({ theme }) => theme.colors.BG_L2};
 
+	position: sticky;
+	top: calc(7.5rem + 1.5rem);
+
 	.profile__link {
 		display: flex;
 		gap: 0.5rem;
