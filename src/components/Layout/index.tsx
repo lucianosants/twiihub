@@ -4,6 +4,7 @@ import { StyledContainer, StyledMain } from './styled';
 import Header from './Header';
 import Profile from './Profile';
 import Nav from './Nav';
+import Footer from './Footer';
 interface Props {
 	children: ReactNode;
 }
@@ -17,6 +18,7 @@ export default function Layout(props: Props) {
 				<Nav />
 				{props.children}
 			</StyledMain>
+			<Footer />
 		</StyledContainer>
 	);
 }
