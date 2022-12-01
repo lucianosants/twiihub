@@ -7,6 +7,7 @@ const StyledProfile = styled.aside`
 
 	padding: 2rem 0;
 	max-width: 25.5rem;
+	height: fit-content;
 	border-radius: 12px;
 	border: 1px solid ${({ theme }) => theme.colors.BORDER};
 	background-color: ${({ theme }) => theme.colors.BG_L2};
