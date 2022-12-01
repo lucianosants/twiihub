@@ -1,38 +1,60 @@
+import { VscLinkExternal } from 'react-icons/vsc';
+
+import {
+	StyledProfile,
+	StyledProfilePic,
+	StyledProfileName,
+	StyledProfileBio,
+	StyledProfileLocation,
+	StyledProfileCount,
+} from './styled';
+
 export default function Profile() {
 	return (
-		<section>
-			<div>
+		<StyledProfile>
+			<StyledProfilePic>
 				{/* eslint-disable-next-line */}
-				<img src='https://source.unsplash.com/random/85x85' alt='' />
-			</div>
+				<img src='https://github.com/lucianosants.png' alt='' />
+			</StyledProfilePic>
 
-			<div>
-				<p>Name...</p>
-				<p>username...</p>
-			</div>
+			<StyledProfileName>
+				<p className='profile__name'>Name...</p>
+				<p className='profile__username'>username...</p>
+			</StyledProfileName>
 
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+			<StyledProfileBio>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
+				ipsum dolor sit amet consectetur adipisicing elit. A ut facilis
+				ullam.
+			</StyledProfileBio>
 
-			<div>
-				<p>Location:</p>
-				<p>Lorem ipsum - dolor</p>
-			</div>
+			<StyledProfileLocation>
+				<p className='profile__location--title'>Location:</p>
+				<p className='profile__location--description'>
+					Lorem ipsum - dolor
+				</p>
+			</StyledProfileLocation>
 
-			<div>
-				<div>
-					<span>...</span>
-					<span>Following</span>
+			<StyledProfileCount>
+				<div className='profile__count'>
+					<span className='profile__count--number'>...</span>
+					<span className='profile__count--title'>Following</span>
 				</div>
 
-				<div>
-					<span>...</span>
-					<span>Followers</span>
+				<div className='profile__count--separator'></div>
+
+				<div className='profile__count'>
+					<span className='profile__count--number'>...</span>
+					<span className='profile__count--title'>Followers</span>
 				</div>
-			</div>
+			</StyledProfileCount>
 
 			<div>
-				<a href=''>View</a>
+				<a className='profile__link' href=''>
+					View on GitHub
+					<VscLinkExternal />
+				</a>
 			</div>
-		</section>
+		</StyledProfile>
 	);
 }
