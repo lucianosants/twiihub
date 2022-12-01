@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledContainer = styled.div`
+const StyledContainer = styled.div`
 	width: 100%;
 	height: 100%;
 	max-width: 123rem;
@@ -10,4 +10,12 @@ export const StyledContainer = styled.div`
 
 	display: flex;
 	justify-content: space-between;
+	gap: 3rem;
 `;
+
+const StyledMain = styled.main`
+	width: 100%;
+	margin: 0 auto;
+`;
+
+export { StyledContainer, StyledMain };
