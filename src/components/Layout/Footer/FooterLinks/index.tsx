@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 
+import { StyledLinkFooter } from './styled';
 interface Props {
 	href: string;
 	icon: ReactNode;
@@ -7,8 +8,8 @@ interface Props {
 
 export function LinkFooter({ href, icon }: Props) {
 	return (
-		<a href={href} target='_blank' rel='noreferrer'>
+		<StyledLinkFooter href={href} target='_blank' rel='noreferrer'>
 			{icon}
-		</a>
+		</StyledLinkFooter>
 	);
 }
