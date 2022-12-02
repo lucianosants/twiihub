@@ -21,11 +21,11 @@ const GlobalStyles = createGlobalStyle`
         --dark-border: #565656;
 
         // light - still in teste...
-        --light-bg-l1: #101011;
-        --light-bg-l2: #fade;
-        --light-text-l1: #121212;
-        --light-text-l2: #121212;
-        --light-border: #565656;
+        --light-bg-l1: #F3F3EE;
+        --light-bg-l2: #FFFFFF;
+        --light-text-l1: #07010A;
+        --light-text-l2: #716A74;
+        --light-border: #ADADAD;
     }
 
     html, body, #__next {
