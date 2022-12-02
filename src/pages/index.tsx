@@ -1,5 +1,7 @@
 import Head from 'next/head';
+
 import Repository from '../components/Layout/Repository';
+import { StyledHome } from './styled';
 
 export default function Home() {
 	return (
@@ -13,7 +15,7 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<section>
+			<StyledHome>
 				<Repository
 					name='twiihub'
 					description='Uma página de perfil usando informações do github e criada com NextJS'
@@ -21,7 +23,7 @@ export default function Home() {
 					watchers={0}
 					html_url='https://github.com/lucianosants/twiihub'
 				/>
-			</section>
+			</StyledHome>
 		</>
 	);
 }
