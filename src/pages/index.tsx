@@ -1,8 +1,9 @@
 import Head from 'next/head';
+import Repository from '../components/Layout/Repository';
 
 export default function Home() {
 	return (
-		<div>
+		<>
 			<Head>
 				<title>TwiiHub</title>
 				<meta
@@ -12,9 +13,15 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<div>
-				<h2>TwiiHub</h2>
-			</div>
-		</div>
+			<section>
+				<Repository
+					name='twiihub'
+					description='Uma página de perfil usando informações do github e criada com NextJS'
+					language='TypeScript'
+					watchers={0}
+					html_url='https://github.com/lucianosants/twiihub'
+				/>
+			</section>
+		</>
 	);
 }
