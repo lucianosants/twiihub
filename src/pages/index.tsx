@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import Repository from '../components/Layout/Repository';
-import { StyledHome } from './styled';
+import { StyledHome } from '../styles/SharedStyles';
 
 export default function Home() {
 	return (
