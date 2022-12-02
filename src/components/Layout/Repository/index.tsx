@@ -1,4 +1,13 @@
 import { VscLinkExternal } from 'react-icons/vsc';
+import {
+	StyledContent,
+	StyledDescription,
+	StyledLanguage,
+	StyledLink,
+	StyledName,
+	StyledRepository,
+	StyledWatchers,
+} from './styled';
 
 interface Props {
 	name: string;
@@ -16,21 +25,21 @@ export default function Repository({
 	html_url,
 }: Props) {
 	return (
-		<article>
-			<div>
-				<h4>{name}</h4>
-				<p>{description}</p>
+		<StyledRepository>
+			<StyledContent>
+				<StyledName>{name}</StyledName>
+				<StyledDescription>{description}</StyledDescription>
 
-				<p>{language}</p>
+				<StyledLanguage>{language}</StyledLanguage>
 
-				<p>Watchers: {watchers}</p>
-			</div>
+				<StyledWatchers>Watchers: {watchers}</StyledWatchers>
+			</StyledContent>
 
-			<div>
+			<StyledLink>
 				<a href={html_url} target='_blank' rel='noreferrer'>
 					<VscLinkExternal />
 				</a>
-			</div>
-		</article>
+			</StyledLink>
+		</StyledRepository>
 	);
 }
