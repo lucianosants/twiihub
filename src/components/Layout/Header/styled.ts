@@ -79,6 +79,7 @@ const StyledSettings = styled.div`
 	button {
 		background: transparent;
 		border: none;
+		cursor: pointer;
 
 		svg {
 			fill: ${({ theme }) => theme.colors.TEXT_L1};
@@ -90,6 +91,13 @@ const StyledSettings = styled.div`
 				fill: var(--brand);
 			}
 		}
+	}
+
+	#btn__toggle {
+		color: ${({ theme }) => theme.colors.TEXT_L2};
+		border: 2px solid ${({ theme }) => theme.colors.BORDER};
+		border-radius: 7px;
+		padding: 0.5rem 1rem;
 	}
 `;
 

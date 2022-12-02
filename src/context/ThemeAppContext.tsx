@@ -11,13 +11,21 @@ interface ProviderWrapperProps {
 
 export const ThemeAppContext = createContext({
 	theme: '',
+	toggleTheme: () => {},
 });
 
 export function ThemeAppProvider({ children, initialValue }: AppProviderProps) {
 	const [theme, setTheme] = useState(initialValue);
 
+	const handleToggleTheme = () => {
+		if (theme === 'dark') setTheme('light');
+		if (theme === 'light') setTheme('dark');
+	};
+
 	return (
-		<ThemeAppContext.Provider value={{ theme: theme }}>
+		<ThemeAppContext.Provider
+			value={{ theme: theme, toggleTheme: handleToggleTheme }}
+		>
 			{children}
 		</ThemeAppContext.Provider>
 	);

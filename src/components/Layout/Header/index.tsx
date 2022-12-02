@@ -1,6 +1,7 @@
+import { useContext, useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FaRegUserCircle } from 'react-icons/fa';
-import { FiEdit } from 'react-icons/fi';
+import { ThemeAppContext } from '../../../context/ThemeAppContext';
 
 import Button from './Button';
 import Logo from './Logo';
@@ -12,6 +13,13 @@ import {
 } from './styled';
 
 export default function Header() {
+	const context = useContext(ThemeAppContext);
+	const [darkIcon, setDarkIcon] = useState(true);
+
+	useEffect(() => {
+		context.theme === 'dark' ? setDarkIcon(true) : setDarkIcon(false);
+	}, [context.theme]);
+
 	return (
 		<StyledHeaderWrapper>
 			<StyledHeader>
@@ -26,8 +34,11 @@ export default function Header() {
 				</StyledBrand>
 
 				<StyledSettings>
-					<Button onClick={() => console.log('teste')}>
-						<FiEdit size={22} />
+					<Button
+						id='btn__toggle'
+						onClick={() => context.toggleTheme()}
+					>
+						{darkIcon ? '☀️ Light' : '🌙 Dark'}
 					</Button>
 					<Button onClick={() => console.log('test2')}>
 						<FaRegUserCircle size={22} />
