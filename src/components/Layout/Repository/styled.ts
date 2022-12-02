@@ -14,6 +14,7 @@ const StyledRepository = styled.article`
 const StyledContent = styled.div`
 	display: flex;
 	flex-direction: column;
+	flex: 1;
 	gap: 2.6rem;
 `;
 
