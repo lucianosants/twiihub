@@ -1,10 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
+import { AiOutlineSearch, AiOutlineClose } from 'react-icons/ai';
 import { FaRegUserCircle } from 'react-icons/fa';
+
 import { ThemeAppContext } from '../../../context/ThemeAppContext';
 
+import Modal from '../Modal';
 import Button from './Button';
 import Logo from './Logo';
+
 import {
 	StyledHeader,
 	StyledBrand,
@@ -15,6 +18,10 @@ import {
 export default function Header() {
 	const context = useContext(ThemeAppContext);
 	const [darkIcon, setDarkIcon] = useState(true);
+	const [isOpenModal, setIsOpenModal] = useState(false);
+
+	const toggleModal = () => setIsOpenModal(!isOpenModal);
+	const closeModal = () => setIsOpenModal(false);
 
 	useEffect(() => {
 		context.theme === 'dark' ? setDarkIcon(true) : setDarkIcon(false);
@@ -40,10 +47,20 @@ export default function Header() {
 					>
 						{darkIcon ? '☀️ Light' : '🌙 Dark'}
 					</Button>
-					<Button onClick={() => console.log('test2')}>
+					<Button onClick={() => toggleModal()}>
 						<FaRegUserCircle size={22} />
 					</Button>
 				</StyledSettings>
+
+				<Modal
+					onClick={toggleModal}
+					clickClose={closeModal}
+					isOpen={isOpenModal}
+					title='Edit Profile'
+					icon={<AiOutlineClose />}
+					description='Choose another user'
+					placeholder='New github user...'
+				/>
 			</StyledHeader>
 		</StyledHeaderWrapper>
 	);
