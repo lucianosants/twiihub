@@ -15,8 +15,9 @@ interface Props {
 	description: string;
 	placeholder: string;
 	isOpen: boolean;
-	onClick: () => void;
-	clickClose: () => void;
+	onClick?: () => void;
+	clickClose?: () => void | null;
+	submitClose: () => void;
 }
 
 export default function Modal({
@@ -27,13 +28,13 @@ export default function Modal({
 	isOpen,
 	onClick,
 	clickClose,
+	submitClose,
 }: Props) {
 	const [inputValue, setInputValue] = useState('');
 
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
-		alert('testing');
-		clickClose();
+		submitClose();
 	};
 
 	return (

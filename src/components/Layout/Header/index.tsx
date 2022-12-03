@@ -59,6 +59,7 @@ export default function Header() {
 					icon={<AiOutlineClose />}
 					description='Choose another user'
 					placeholder='New github user...'
+					submitClose={closeModal}
 				/>
 			</StyledHeader>
 		</StyledHeaderWrapper>
