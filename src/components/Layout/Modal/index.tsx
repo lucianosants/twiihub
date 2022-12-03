@@ -33,6 +33,7 @@ export default function Modal({
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
 		alert('testing');
+		clickClose();
 	};
 
 	return (
