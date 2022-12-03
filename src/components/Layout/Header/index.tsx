@@ -3,6 +3,7 @@ import { AiOutlineSearch, AiOutlineClose } from 'react-icons/ai';
 import { FaRegUserCircle } from 'react-icons/fa';
 
 import { ThemeAppContext } from '../../../context/ThemeAppContext';
+import useModalFunctions from '../../../hooks/useModalFunctions';
 
 import Modal from '../Modal';
 import Button from './Button';
@@ -18,10 +19,8 @@ import {
 export default function Header() {
 	const context = useContext(ThemeAppContext);
 	const [darkIcon, setDarkIcon] = useState(true);
-	const [isOpenModal, setIsOpenModal] = useState(false);
-
-	const toggleModal = () => setIsOpenModal(!isOpenModal);
-	const closeModal = () => setIsOpenModal(false);
+	const { isOpenModal, setIsOpenModal, toggleModal, closeModal } =
+		useModalFunctions();
 
 	useEffect(() => {
 		context.theme === 'dark' ? setDarkIcon(true) : setDarkIcon(false);
