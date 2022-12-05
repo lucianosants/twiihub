@@ -22,7 +22,7 @@ const StyledModal = styled.div`
 `;
 
 const StyledMask = styled.div`
-	background-color: ${({ theme }) => theme.colors.BG_L2};
+	background-color: #000;
 	opacity: 0.9;
 	width: 100%;
 	height: 100%;
