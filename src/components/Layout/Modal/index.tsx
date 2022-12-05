@@ -1,5 +1,7 @@
-import { FormEvent, ReactNode, useEffect, useState } from 'react';
+import { FormEvent, ReactNode, useContext, useState } from 'react';
 import { BiRightArrowAlt } from 'react-icons/bi';
+
+import { UserContext } from '../../../context/UserContext';
 
 import {
 	StyledBody,
@@ -32,9 +34,14 @@ export default function Modal({
 }: Props) {
 	const [inputValue, setInputValue] = useState('');
 
+	const { setUser } = useContext(UserContext);
+
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
 		submitClose();
+
+		setInputValue('');
+		setUser(inputValue);
 	};
 
 	return (

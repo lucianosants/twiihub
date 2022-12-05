@@ -13,8 +13,7 @@ interface Props {
 }
 
 export default function Layout(props: Props) {
-	const { initialModal, toggleModal, closeInitialModal } =
-		useModalFunctions();
+	const { initialModal, closeInitialModal } = useModalFunctions();
 
 	return (
 		<StyledContainer>
