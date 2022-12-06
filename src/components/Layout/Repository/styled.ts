@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledRepository = styled.article`
+const StyledRepository = styled.div`
 	border: 1px solid ${({ theme }) => theme.colors.BORDER};
 	background-color: ${({ theme }) => theme.colors.BG_L2};
 	border-radius: 12px;
