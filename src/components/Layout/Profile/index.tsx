@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { VscLinkExternal } from 'react-icons/vsc';
 import { UserContext } from '../../../context/UserContext';
+import { StyledLoading } from '../../../styles/SharedStyles';
 
 import {
 	StyledProfile,
@@ -61,75 +62,72 @@ export default function Profile() {
 	}, [url]);
 
 	return (
-		<StyledProfile>
-			<StyledProfilePic>
-				{/* eslint-disable-next-line */}
-				<img
-					src={data.avatar_url}
-					alt={`profile pic of ${data.name}`}
-				/>
-			</StyledProfilePic>
+		<>
+			{!data.login ? (
+				<StyledLoading></StyledLoading>
+			) : (
+				<StyledProfile>
+					<StyledProfilePic>
+						{/* eslint-disable-next-line */}
+						<img
+							src={data.avatar_url}
+							alt={`profile pic of ${data.name}`}
+						/>
+					</StyledProfilePic>
 
-			<StyledProfileName>
-				{!data.name && <p className='profile__name'>Name: not found</p>}
-				<p className='profile__name'>{data.name}</p>
+					<StyledProfileName>
+						<p className='profile__name'>{data.name}</p>
 
-				{!data.login && (
-					<p className='profile__username'>Username: not found</p>
-				)}
-				<p className='profile__username'>{data.login}</p>
-			</StyledProfileName>
+						<p className='profile__username'>{data.login}</p>
+					</StyledProfileName>
 
-			<StyledProfileBio>
-				{!data.bio && <span>Bio: bio not found or do not have...</span>}
+					<StyledProfileBio>{data.bio}</StyledProfileBio>
 
-				{data.bio}
-			</StyledProfileBio>
+					<StyledProfileLocation>
+						<p className='profile__location--title'>Location:</p>
 
-			<StyledProfileLocation>
-				<p className='profile__location--title'>Location:</p>
+						<p className='profile__location--description'>
+							{data.location}
+						</p>
+					</StyledProfileLocation>
 
-				{!data.location && (
-					<p className='profile__location--description'>
-						Location: not found or do not have
-					</p>
-				)}
-				<p className='profile__location--description'>
-					{data.location}
-				</p>
-			</StyledProfileLocation>
+					<StyledProfileCount>
+						<div className='profile__count'>
+							<span className='profile__count--number'>
+								{data.following}
+							</span>
+							<span className='profile__count--title'>
+								Following
+							</span>
+						</div>
 
-			<StyledProfileCount>
-				<div className='profile__count'>
-					<span className='profile__count--number'>
-						{data.following}
-					</span>
-					<span className='profile__count--title'>Following</span>
-				</div>
+						<div className='profile__count--separator'></div>
 
-				<div className='profile__count--separator'></div>
+						<div className='profile__count'>
+							<span className='profile__count--number'>
+								{data.followers}
+							</span>
+							<span className='profile__count--title'>
+								Followers
+							</span>
+						</div>
+					</StyledProfileCount>
 
-				<div className='profile__count'>
-					<span className='profile__count--number'>
-						{data.followers}
-					</span>
-					<span className='profile__count--title'>Followers</span>
-				</div>
-			</StyledProfileCount>
-
-			<div>
-				{data.html_url && (
-					<a
-						className='profile__link'
-						href={data.html_url}
-						target='_blank'
-						rel='noreferrer'
-					>
-						View on GitHub
-						<VscLinkExternal />
-					</a>
-				)}
-			</div>
-		</StyledProfile>
+					<div>
+						{data.html_url && (
+							<a
+								className='profile__link'
+								href={data.html_url}
+								target='_blank'
+								rel='noreferrer'
+							>
+								View on GitHub
+								<VscLinkExternal />
+							</a>
+						)}
+					</div>
+				</StyledProfile>
+			)}
+		</>
 	);
 }

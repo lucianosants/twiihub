@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from 'react';
 
 import Repository from '../components/Layout/Repository';
 import { UserContext } from '../context/UserContext';
-import { StyledHome } from '../styles/SharedStyles';
+import { StyledHome, StyledLoadingRepository } from '../styles/SharedStyles';
 
 interface Repository {
 	id: number;
@@ -31,6 +31,8 @@ export default function Home() {
 		fetchData();
 	}, [url]);
 
+	console.log(data);
+
 	return (
 		<>
 			<Head>
@@ -42,21 +44,25 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<StyledHome>
-				{data.map((repo) => {
-					return (
-						<article key={repo.id}>
-							<Repository
-								name={repo.name}
-								description={repo.description}
-								language={repo.language}
-								watchers={repo.watchers}
-								html_url={repo.html_url}
-							/>
-						</article>
-					);
-				})}
-			</StyledHome>
+			{!data.length ? (
+				<StyledLoadingRepository></StyledLoadingRepository>
+			) : (
+				<StyledHome>
+					{data.map((repo) => {
+						return (
+							<article key={repo.id}>
+								<Repository
+									name={repo.name}
+									description={repo.description}
+									language={repo.language}
+									watchers={repo.watchers}
+									html_url={repo.html_url}
+								/>
+							</article>
+						);
+					})}
+				</StyledHome>
+			)}
 		</>
 	);
 }

@@ -39,4 +39,51 @@ const StyledAbout = styled(StyledHome)`
 	}
 `;
 
-export { StyledHome, StyledAbout };
+const StyledLoading = styled.aside`
+	width: 100%;
+	min-height: 20vw;
+	position: relative;
+	// ...
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	padding: 2rem 0;
+	max-width: 25.5rem;
+	height: fit-content;
+	border-radius: 12px;
+	border: 1px solid ${({ theme }) => theme.colors.BORDER};
+	background-color: ${({ theme }) => theme.colors.BG_L2};
+
+	position: sticky;
+	top: calc(7.5rem + 1.5rem);
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: var(--brand);
+		border-radius: 12px;
+		animation: loading 3s alternate infinite;
+	}
+
+	@keyframes loading {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 0.1;
+		}
+	}
+`;
+
+const StyledLoadingRepository = styled(StyledLoading)`
+	max-width: 100%;
+	margin-top: 3rem;
+	z-index: -1;
+`;
+
+export { StyledHome, StyledAbout, StyledLoading, StyledLoadingRepository };
