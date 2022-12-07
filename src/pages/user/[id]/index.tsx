@@ -1,4 +1,6 @@
+import axios from 'axios';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import { VscLinkExternal } from 'react-icons/vsc';
 
 import {
@@ -11,10 +13,51 @@ interface ProfileProps {
 	avatar_url: string;
 	name: string;
 	login: string;
+	bio: string;
+	following: number;
+	followers: number;
+	html_url: string;
+	repos: string;
+	public_repos: number;
 }
 
 export default function Search() {
+	const [data, setData] = useState<ProfileProps>({
+		avatar_url: '',
+		name: '',
+		login: '',
+		bio: '',
+		following: 0,
+		followers: 0,
+		html_url: '',
+		repos: '',
+		public_repos: 0,
+	});
 	const { query } = useRouter();
+
+	const url = `https://api.github.com/users/${query.id}`;
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const { data } = await axios.get(url);
+
+			const user: ProfileProps = {
+				avatar_url: data.avatar_url,
+				name: data.name,
+				login: data.login,
+				bio: data.bio,
+				following: data.following,
+				followers: data.followers,
+				html_url: data.html_url,
+				repos: data.login,
+				public_repos: data.public_repos,
+			};
+
+			setData(user);
+		};
+
+		fetchData();
+	}, [url]);
 
 	return (
 		<StyledUserPage>
@@ -30,30 +73,29 @@ export default function Search() {
 				<StyledWrapper>
 					<div>
 						{/* eslint-disable-next-line */}
-						<img src='https://github.com/lucianosants.png' alt='' />
+						<img
+							src={data.avatar_url}
+							alt={`Profile pic of ${data.name}`}
+						/>
 
-						<p className='user__name'>Luciano Santos</p>
-						<p className='user__username'>lucianosants</p>
-						<p className='user__bio'>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Soluta, deleniti! Rem ad voluptatem unde
-							explicabo commodi quidem?
-						</p>
+						<p className='user__name'>{data.name}</p>
+						<p className='user__username'>{data.login}</p>
+						<p className='user__bio'>{data.bio}</p>
 					</div>
 
 					<div className='user__count'>
 						<div className='user__count--main'>
 							<div className='user__main--col'>
-								<strong>0</strong>
+								<strong>{data.following}</strong>
 								<span>Following</span>
 							</div>
 							<div className='user__main--col'>
-								<strong>0</strong>
+								<strong>{data.followers}</strong>
 								<span>Followers</span>
 							</div>
 
 							<div className='user__main--col'>
-								<strong>0</strong>
+								<strong>{data.public_repos}</strong>
 								<span>Public repositories</span>
 							</div>
 						</div>
@@ -63,17 +105,13 @@ export default function Search() {
 
 			<StyledUserFooter>
 				<div>
-					<a
-						href='https://github.com/lucianosants'
-						rel='noreferrer'
-						target='_blank'
-					>
+					<a href={data.html_url} rel='noreferrer' target='_blank'>
 						View profile on GitHub
 						<VscLinkExternal />
 					</a>
 
 					<a
-						href='https://github.com/lucianosants?tab=repositories'
+						href={`https://github.com/${data.login}?tab=repositories`}
 						rel='noreferrer'
 						target='_blank'
 					>

@@ -1,4 +1,5 @@
-import { useContext, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { FormEvent, useContext, useEffect, useState } from 'react';
 import { AiOutlineSearch, AiOutlineClose } from 'react-icons/ai';
 import { FaRegUserCircle } from 'react-icons/fa';
 
@@ -19,8 +20,22 @@ import {
 export default function Header() {
 	const context = useContext(ThemeAppContext);
 	const [darkIcon, setDarkIcon] = useState(true);
+	const [inputValue, setInputValue] = useState('');
 	const { isOpenModal, setIsOpenModal, toggleModal, closeModal } =
 		useModalFunctions();
+
+	const router = useRouter();
+	const handleSearch = (e: FormEvent) => {
+		e.preventDefault();
+
+		if (
+			router.pathname === '/' ||
+			router.pathname === '/about' ||
+			router.pathname.includes('/user')
+		) {
+			return router.push(`/user/${inputValue}`);
+		}
+	};
 
 	useEffect(() => {
 		context.theme === 'dark' ? setDarkIcon(true) : setDarkIcon(false);
@@ -31,8 +46,13 @@ export default function Header() {
 			<StyledHeader>
 				<StyledBrand>
 					<Logo />
-					<form>
-						<input type='text' placeholder='Find an user...' />
+					<form onSubmit={handleSearch}>
+						<input
+							type='text'
+							placeholder='Find an user...'
+							value={inputValue}
+							onChange={(e) => setInputValue(e.target.value)}
+						/>
 						<button type='submit'>
 							<AiOutlineSearch size={22} />
 						</button>
