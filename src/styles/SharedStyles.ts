@@ -86,4 +86,112 @@ const StyledLoadingRepository = styled(StyledLoading)`
 	z-index: -1;
 `;
 
-export { StyledHome, StyledAbout, StyledLoading, StyledLoadingRepository };
+const StyledUserPage = styled(StyledHome)`
+	border: 1px solid ${({ theme }) => theme.colors.BORDER};
+	border-radius: 12px;
+	background-color: ${({ theme }) => theme.colors.BG_L2};
+	gap: 0;
+`;
+
+const StyledWrapper = styled.div`
+	border-bottom: 1px solid ${({ theme }) => theme.colors.BORDER};
+
+	div {
+		padding: 2.6rem;
+
+		h2 {
+			font-size: 1.8rem;
+		}
+
+		img {
+			max-width: 8rem;
+			clip-path: circle();
+			border-radius: 100%;
+			border: 3px solid var(--brand);
+			margin-bottom: 1.3rem;
+		}
+
+		.user__name {
+			font-weight: 600;
+		}
+
+		.user__username {
+			font-size: 1.2rem;
+			font-weight: 600;
+			color: ${({ theme }) => theme.colors.TEXT_L2};
+		}
+
+		.user__bio {
+			width: 100%;
+			margin-top: 1.2rem;
+			font-size: 1.3rem;
+			line-height: 1.2;
+			color: ${({ theme }) => theme.colors.TEXT_L2};
+		}
+	}
+
+	.user__count {
+		border-top: 1px solid ${({ theme }) => theme.colors.BORDER};
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0;
+
+		.user__count--main {
+			display: flex;
+			flex-wrap: wrap;
+
+			.user__main--col {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 1.2rem;
+				text-align: center;
+
+				strong {
+					font-size: 1.4rem;
+				}
+
+				span {
+					color: ${({ theme }) => theme.colors.TEXT_L2};
+					font-size: 1.2rem;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+`;
+
+const StyledUserFooter = styled.div`
+	padding: 2.6rem;
+
+	div {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+
+		a {
+			display: flex;
+			gap: 0.5rem;
+			color: var(--brand);
+			text-decoration: none;
+			transition: all 0.3s;
+			font-size: 1.4rem;
+
+			&:hover,
+			&:focus {
+				color: ${({ theme }) => theme.colors.TEXT_L2};
+			}
+		}
+	}
+`;
+
+export {
+	StyledHome,
+	StyledAbout,
+	StyledLoading,
+	StyledLoadingRepository,
+	StyledUserPage,
+	StyledWrapper,
+	StyledUserFooter,
+};
