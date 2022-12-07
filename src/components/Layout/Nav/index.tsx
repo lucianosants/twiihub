@@ -28,7 +28,7 @@ export default function Nav() {
 	return (
 		<StyledNav>
 			<Link id='repos' href='/'>
-				Repositories
+				Home
 			</Link>
 			<Link id='about' href='/about'>
 				About project

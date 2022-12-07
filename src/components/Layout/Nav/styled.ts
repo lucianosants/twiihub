@@ -35,9 +35,9 @@ const StyledNav = styled.nav`
 			content: '';
 			position: absolute;
 			top: 0.2rem;
-			left: -1rem;
+			left: 0rem;
 			border-bottom: 3px solid var(--brand);
-			width: 120%;
+			width: 100%;
 			height: 100%;
 		}
 	}
