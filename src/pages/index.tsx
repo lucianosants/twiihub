@@ -31,8 +31,6 @@ export default function Home() {
 		fetchData();
 	}, [url]);
 
-	console.log(data);
-
 	return (
 		<>
 			<Head>
