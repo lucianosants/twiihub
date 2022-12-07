@@ -43,11 +43,10 @@ const StyledLoading = styled.aside`
 	width: 100%;
 	min-height: 20vw;
 	position: relative;
-	// ...
 
 	display: flex;
-	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 
 	padding: 2rem 0;
 	max-width: 25.5rem;
@@ -101,6 +100,10 @@ const StyledWrapper = styled.div`
 
 		h2 {
 			font-size: 1.8rem;
+
+			strong {
+				color: var(--brand);
+			}
 		}
 
 		img {

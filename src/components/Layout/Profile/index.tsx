@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Image from 'next/image';
 import { useContext, useEffect, useState } from 'react';
 import { VscLinkExternal } from 'react-icons/vsc';
 import { UserContext } from '../../../context/UserContext';
@@ -35,6 +36,7 @@ export default function Profile() {
 		followers: 0,
 		html_url: '',
 	});
+	const [error, setError] = useState(false);
 
 	const { user } = useContext(UserContext);
 
@@ -42,20 +44,24 @@ export default function Profile() {
 
 	useEffect(() => {
 		const getFetch = async () => {
-			const { data } = await axios.get(url);
+			try {
+				const { data } = await axios.get(url);
 
-			const user: ProfileProps = {
-				avatar_url: data.avatar_url,
-				name: data.name,
-				login: data.login,
-				bio: data.bio,
-				location: data.location,
-				following: data.following,
-				followers: data.followers,
-				html_url: data.html_url,
-			};
-
-			setData(user);
+				const user: ProfileProps = {
+					avatar_url: data.avatar_url,
+					name: data.name,
+					login: data.login,
+					bio: data.bio,
+					location: data.location,
+					following: data.following,
+					followers: data.followers,
+					html_url: data.html_url,
+				};
+				setError(false);
+				setData(user);
+			} catch (error) {
+				setError(true);
+			}
 		};
 
 		getFetch();
@@ -63,8 +69,8 @@ export default function Profile() {
 
 	return (
 		<>
-			{!data.login ? (
-				<StyledLoading></StyledLoading>
+			{error ? (
+				<StyledLoading>User not found.</StyledLoading>
 			) : (
 				<StyledProfile>
 					<StyledProfilePic>

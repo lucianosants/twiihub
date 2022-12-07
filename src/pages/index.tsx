@@ -17,17 +17,23 @@ interface Repository {
 
 export default function Home() {
 	const [data, setData] = useState<Repository[]>([]);
+	const [error, setError] = useState(false);
 	const { user } = useContext(UserContext);
 
 	const url = `https://api.github.com/users/${user}/repos`;
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const { data } = await axios.get(url);
+			try {
+				const { data } = await axios.get(url);
 
-			setData(data);
+				setData(data);
+
+				setError(false);
+			} catch (error) {
+				setError(true);
+			}
 		};
-
 		fetchData();
 	}, [url]);
 
@@ -42,8 +48,10 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			{!data.length ? (
-				<StyledLoadingRepository></StyledLoadingRepository>
+			{error ? (
+				<StyledLoadingRepository>
+					User not found!
+				</StyledLoadingRepository>
 			) : (
 				<StyledHome>
 					{data.map((repo) => {
