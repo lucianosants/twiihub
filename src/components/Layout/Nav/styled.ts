@@ -41,6 +41,10 @@ const StyledNav = styled.nav`
 			height: 100%;
 		}
 	}
+
+	@media (max-width: 620px) {
+		top: calc(9rem + 1.5rem);
+	}
 `;
 
 export { StyledNav };

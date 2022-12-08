@@ -10,6 +10,11 @@ const StyledContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 	gap: 3rem;
+
+	@media (max-width: 620px) {
+		margin-top: calc(10.4rem + 3.1rem);
+		flex-direction: column;
+	}
 `;
 
 const StyledMain = styled.main`
