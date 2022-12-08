@@ -56,6 +56,7 @@ export default function Header() {
 							placeholder='Find an user...'
 							value={inputValue}
 							onChange={(e) => setInputValue(e.target.value)}
+							autoCapitalize='off'
 						/>
 						<button type='submit'>
 							<AiOutlineSearch size={22} />

@@ -66,6 +66,7 @@ export default function Modal({
 							value={inputValue}
 							onChange={(e) => setInputValue(e.target.value)}
 							placeholder={placeholder}
+							autoCapitalize='off'
 						/>
 						<button type='submit'>
 							<BiRightArrowAlt size={22} />
