@@ -33,6 +33,15 @@ const StyledFooter = styled.footer`
 		font-size: 1.2rem;
 		color: ${({ theme }) => theme.colors.TEXT_L2};
 	}
+
+	@media (max-width: 620px) {
+		max-width: 100%;
+		margin-bottom: 1.8rem;
+
+		.footer__copyright {
+			text-align: center;
+		}
+	}
 `;
 
 export { StyledFooter };
