@@ -49,10 +49,7 @@ export default function Header() {
 				<StyledBrand>
 					<Logo />
 					{/* eslint-disable-next-line */}
-					<img
-						src={`https://github.com/${user}.png`}
-						alt='Main profile pic'
-					/>
+					<img src={`https://github.com/${user}.png`} alt='IMG' />
 					<form onSubmit={handleSearch}>
 						<input
 							type='text'
