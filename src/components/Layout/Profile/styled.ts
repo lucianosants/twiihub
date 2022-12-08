@@ -28,6 +28,11 @@ const StyledProfile = styled.aside`
 			color: ${({ theme }) => theme.colors.TEXT_L2};
 		}
 	}
+
+	@media (max-width: 620px) {
+		top: auto;
+		max-width: 100%;
+	}
 `;
 
 const StyledProfilePic = styled.div`
