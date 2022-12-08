@@ -64,7 +64,17 @@ export default function Header() {
 						id='btn__toggle'
 						onClick={() => context.toggleTheme()}
 					>
-						{darkIcon ? '☀️ Light' : '🌙 Dark'}
+						{darkIcon ? (
+							<>
+								<i>☀️ </i>
+								<span>Light</span>
+							</>
+						) : (
+							<>
+								<i>🌙 </i>
+								<span>Dark</span>
+							</>
+						)}
 					</Button>
 					<Button onClick={() => toggleModal()}>
 						<FaRegUserCircle size={22} />

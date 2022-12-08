@@ -11,6 +11,10 @@ const StyledHeaderWrapper = styled.div`
 	align-items: center;
 	background-color: ${({ theme }) => theme.colors.BG_L1};
 	box-shadow: 0 0 1px ${({ theme }) => theme.colors.BORDER};
+
+	@media (max-width: 620px) {
+		height: 10.4rem;
+	}
 `;
 
 const StyledHeader = styled.header`
@@ -80,6 +84,16 @@ const StyledSettings = styled.div`
 		background: transparent;
 		border: none;
 		cursor: pointer;
+
+		@media (max-width: 620px) {
+			span {
+				display: none;
+			}
+		}
+
+		i {
+			font-style: normal;
+		}
 
 		svg {
 			fill: ${({ theme }) => theme.colors.TEXT_L1};
