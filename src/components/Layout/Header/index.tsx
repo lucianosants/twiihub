@@ -4,6 +4,7 @@ import { AiOutlineSearch, AiOutlineClose } from 'react-icons/ai';
 import { FaRegUserCircle } from 'react-icons/fa';
 
 import { ThemeAppContext } from '../../../context/ThemeAppContext';
+import { UserContext } from '../../../context/UserContext';
 import useModalFunctions from '../../../hooks/useModalFunctions';
 
 import Modal from '../Modal';
@@ -18,7 +19,8 @@ import {
 } from './styled';
 
 export default function Header() {
-	const context = useContext(ThemeAppContext);
+	const { theme, toggleTheme } = useContext(ThemeAppContext);
+	const { user } = useContext(UserContext);
 	const [darkIcon, setDarkIcon] = useState(true);
 	const [inputValue, setInputValue] = useState('');
 	const { isOpenModal, setIsOpenModal, toggleModal, closeModal } =
@@ -38,14 +40,19 @@ export default function Header() {
 	};
 
 	useEffect(() => {
-		context.theme === 'dark' ? setDarkIcon(true) : setDarkIcon(false);
-	}, [context.theme]);
+		theme === 'dark' ? setDarkIcon(true) : setDarkIcon(false);
+	}, [theme]);
 
 	return (
 		<StyledHeaderWrapper>
 			<StyledHeader>
 				<StyledBrand>
 					<Logo />
+					{/* eslint-disable-next-line */}
+					<img
+						src={`https://github.com/${user}.png`}
+						alt='Main profile pic'
+					/>
 					<form onSubmit={handleSearch}>
 						<input
 							type='text'
@@ -60,10 +67,7 @@ export default function Header() {
 				</StyledBrand>
 
 				<StyledSettings>
-					<Button
-						id='btn__toggle'
-						onClick={() => context.toggleTheme()}
-					>
+					<Button id='btn__toggle' onClick={() => toggleTheme()}>
 						{darkIcon ? (
 							<>
 								<i>☀️ </i>

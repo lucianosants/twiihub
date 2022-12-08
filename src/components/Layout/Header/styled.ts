@@ -33,6 +33,14 @@ const StyledBrand = styled.div`
 	align-items: center;
 	gap: 5.3rem;
 
+	img {
+		display: none;
+		width: 4.2rem;
+		border-radius: 100%;
+		clip-path: circle();
+		border: 3px solid var(--brand);
+	}
+
 	form {
 		width: 26rem;
 		height: 4rem;
@@ -74,6 +82,22 @@ const StyledBrand = styled.div`
 			}
 		}
 	}
+
+	@media (max-width: 620px) {
+		gap: 1.8rem;
+
+		img {
+			display: block;
+		}
+
+		> svg {
+			display: none;
+		}
+
+		form {
+			width: 15rem;
+		}
+	}
 `;
 
 const StyledSettings = styled.div`
@@ -112,6 +136,10 @@ const StyledSettings = styled.div`
 		border: 2px solid ${({ theme }) => theme.colors.BORDER};
 		border-radius: 7px;
 		padding: 0.5rem 1rem;
+	}
+
+	@media (max-width: 620px) {
+		gap: 1.6rem;
 	}
 `;
 
