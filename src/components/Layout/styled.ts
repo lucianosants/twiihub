@@ -11,7 +11,7 @@ const StyledContainer = styled.div`
 	justify-content: space-between;
 	gap: 3rem;
 
-	@media (max-width: 620px) {
+	@media (max-width: 960px) {
 		margin-top: calc(10.4rem + 3.1rem);
 		flex-direction: column;
 	}

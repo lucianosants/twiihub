@@ -168,7 +168,7 @@ const StyledWrapper = styled.div`
 				}
 			}
 
-			@media (max-width: 960px) {
+			@media (max-width: 483px) {
 				.col--public {
 					border-top: 1px solid ${({ theme }) => theme.colors.BORDER};
 				}

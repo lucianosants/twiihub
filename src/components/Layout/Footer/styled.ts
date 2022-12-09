@@ -34,7 +34,7 @@ const StyledFooter = styled.footer`
 		color: ${({ theme }) => theme.colors.TEXT_L2};
 	}
 
-	@media (max-width: 620px) {
+	@media (max-width: 960px) {
 		max-width: 100%;
 		margin-bottom: 1.8rem;
 

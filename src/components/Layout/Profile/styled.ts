@@ -29,7 +29,7 @@ const StyledProfile = styled.aside`
 		}
 	}
 
-	@media (max-width: 620px) {
+	@media (max-width: 960px) {
 		top: auto;
 		max-width: 100%;
 	}
