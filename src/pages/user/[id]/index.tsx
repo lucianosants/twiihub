@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { VscLinkExternal } from 'react-icons/vsc';
@@ -72,6 +73,15 @@ export default function Search() {
 
 	return (
 		<>
+			<Head>
+				<title>User {data.login}</title>
+				<meta
+					name='description'
+					content='An app for you see a profile based from your github'
+				/>
+				<link rel='icon' href='/favicon.ico' />
+			</Head>
+
 			{error ? (
 				<StyledLoadingRepository>
 					{messages.error[2]}
