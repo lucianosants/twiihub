@@ -107,7 +107,7 @@ export default function Search() {
 										<span>Followers</span>
 									</div>
 
-									<div className='user__main--col'>
+									<div className='user__main--col col--public'>
 										<strong>{data.public_repos}</strong>
 										<span>Public repositories</span>
 									</div>

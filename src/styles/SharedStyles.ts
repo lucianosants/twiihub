@@ -155,6 +155,7 @@ const StyledWrapper = styled.div`
 				align-items: center;
 				gap: 1.2rem;
 				text-align: center;
+				flex-grow: 1;
 
 				strong {
 					font-size: 1.4rem;
@@ -164,6 +165,12 @@ const StyledWrapper = styled.div`
 					color: ${({ theme }) => theme.colors.TEXT_L2};
 					font-size: 1.2rem;
 					font-weight: 600;
+				}
+			}
+
+			@media (max-width: 960px) {
+				.col--public {
+					border-top: 1px solid ${({ theme }) => theme.colors.BORDER};
 				}
 			}
 		}
@@ -177,6 +184,8 @@ const StyledUserFooter = styled.div`
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
+		flex-wrap: wrap;
+		row-gap: 1.8rem;
 
 		a {
 			display: flex;
