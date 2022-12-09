@@ -63,7 +63,11 @@ export default function Modal({
 				<StyledHeader>
 					<h4 className='modal__title'>{title}</h4>
 					{icon && (
-						<button className='modal__icon' onClick={onClick}>
+						<button
+							className='modal__icon'
+							onClick={onClick}
+							aria-label='Button to close modal'
+						>
 							{icon}
 						</button>
 					)}
@@ -82,7 +86,10 @@ export default function Modal({
 							placeholder={placeholder}
 							autoCapitalize='off'
 						/>
-						<button type='submit'>
+						<button
+							type='submit'
+							aria-label='Button to submit your user'
+						>
 							<BiRightArrowAlt size={22} />
 						</button>
 					</form>

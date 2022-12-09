@@ -72,14 +72,21 @@ export default function Header() {
 							}
 							autoCapitalize='off'
 						/>
-						<button type='submit'>
+						<button
+							type='submit'
+							aria-label='Button to search an user'
+						>
 							<AiOutlineSearch size={22} />
 						</button>
 					</form>
 				</StyledBrand>
 
 				<StyledSettings>
-					<Button id='btn__toggle' onClick={() => toggleTheme()}>
+					<Button
+						id='btn__toggle'
+						onClick={() => toggleTheme()}
+						ariaLabel='Button to switch theme'
+					>
 						{darkIcon ? (
 							<>
 								<i>☀️ </i>
@@ -92,7 +99,10 @@ export default function Header() {
 							</>
 						)}
 					</Button>
-					<Button onClick={() => toggleModal()}>
+					<Button
+						onClick={() => toggleModal()}
+						ariaLabel='Button to change user'
+					>
 						<FaRegUserCircle size={22} />
 					</Button>
 				</StyledSettings>

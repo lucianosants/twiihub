@@ -18,16 +18,19 @@ export default function Footer() {
 				<LinkFooter
 					href='https://github.com/lucianosants'
 					icon={<AiFillGithub size={22} />}
+					arial_label='Link to Github'
 				/>
 
 				<LinkFooter
 					href='https://www.linkedin.com/in/lucianosants/'
 					icon={<AiFillLinkedin size={22} />}
+					arial_label='Link to Linkedin'
 				/>
 
 				<LinkFooter
 					href='https://instagram.com/lucianosants.dev'
 					icon={<AiFillInstagram size={22} />}
+					arial_label='Link to Instagram'
 				/>
 			</div>
 
