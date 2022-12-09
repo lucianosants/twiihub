@@ -76,7 +76,9 @@ export default function Modal({
 						<input
 							type='text'
 							value={inputValue}
-							onChange={(e) => setInputValue(e.target.value)}
+							onChange={(e) =>
+								setInputValue(e.target.value.trim())
+							}
 							placeholder={placeholder}
 							autoCapitalize='off'
 						/>

@@ -67,7 +67,9 @@ export default function Header() {
 							type='text'
 							placeholder='Find an user...'
 							value={inputValue}
-							onChange={(e) => setInputValue(e.target.value)}
+							onChange={(e) =>
+								setInputValue(e.target.value.trim())
+							}
 							autoCapitalize='off'
 						/>
 						<button type='submit'>
