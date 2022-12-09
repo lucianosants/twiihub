@@ -7,7 +7,7 @@ const StyledNav = styled.nav`
 	border-radius: 7px;
 	height: 3.6rem;
 	position: sticky;
-	z-index: 2;
+	z-index: 1;
 	top: calc(7.5rem + 1.5rem);
 	background-color: ${({ theme }) => theme.colors.BG_L2};
 	border: 1px solid ${({ theme }) => theme.colors.BORDER};

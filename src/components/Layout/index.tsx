@@ -3,6 +3,7 @@ import useModalFunctions from '../../hooks/useModalFunctions';
 
 import { StyledContainer, StyledMain } from './styled';
 
+import Message from './Message';
 import Header from './Header';
 import Profile from './Profile';
 import Nav from './Nav';
@@ -17,6 +18,7 @@ export default function Layout(props: Props) {
 
 	return (
 		<StyledContainer>
+			<Message />
 			<Modal
 				isOpen={initialModal}
 				title='Welcome to TwiiHub'

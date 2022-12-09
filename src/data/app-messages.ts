@@ -5,7 +5,7 @@ const messages = {
 		'User not found',
 	],
 	success: [
-		'user found. Welcome to TwiiHub',
+		'User found. Welcome to TwiiHub',
 		'User successfully found on github',
 	],
 };
