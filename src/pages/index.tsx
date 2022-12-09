@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from 'react';
 
 import Repository from '../components/Layout/Repository';
 import { UserContext } from '../context/UserContext';
+import { messages } from '../data/app-messages';
 import { StyledHome, StyledLoadingRepository } from '../styles/SharedStyles';
 
 interface Repository {
@@ -50,7 +51,7 @@ export default function Home() {
 
 			{error ? (
 				<StyledLoadingRepository>
-					User not found!
+					{messages.error[2]}
 				</StyledLoadingRepository>
 			) : (
 				<StyledHome>

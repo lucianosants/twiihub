@@ -2,6 +2,8 @@ import { FormEvent, ReactNode, useContext, useState } from 'react';
 import { BiRightArrowAlt } from 'react-icons/bi';
 
 import { UserContext } from '../../../context/UserContext';
+import { messages } from '../../../data/app-messages';
+import { messageType } from '../../../utils/message-type';
 
 import {
 	StyledBody,
@@ -38,8 +40,18 @@ export default function Modal({
 
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
-		submitClose();
 
+		if (!inputValue) {
+			messageType('error', messages.error[0]);
+			return;
+		}
+
+		if (inputValue.length <= 3) {
+			messageType('error', messages.error[1]);
+			return;
+		}
+
+		submitClose();
 		setInputValue('');
 		setUser(inputValue);
 	};

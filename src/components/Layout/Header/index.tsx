@@ -5,7 +5,9 @@ import { FaRegUserCircle } from 'react-icons/fa';
 
 import { ThemeAppContext } from '../../../context/ThemeAppContext';
 import { UserContext } from '../../../context/UserContext';
+import { messages } from '../../../data/app-messages';
 import useModalFunctions from '../../../hooks/useModalFunctions';
+import { messageType } from '../../../utils/message-type';
 
 import Modal from '../Modal';
 import Button from './Button';
@@ -29,6 +31,16 @@ export default function Header() {
 	const router = useRouter();
 	const handleSearch = (e: FormEvent) => {
 		e.preventDefault();
+
+		if (!inputValue) {
+			messageType('error', messages.error[0]);
+			return;
+		}
+
+		if (inputValue.length <= 3) {
+			messageType('error', messages.error[1]);
+			return;
+		}
 
 		if (
 			router.pathname === '/' ||

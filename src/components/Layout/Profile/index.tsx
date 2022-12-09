@@ -1,9 +1,10 @@
 import axios from 'axios';
-import Image from 'next/image';
 import { useContext, useEffect, useState } from 'react';
 import { VscLinkExternal } from 'react-icons/vsc';
 import { UserContext } from '../../../context/UserContext';
+import { messages } from '../../../data/app-messages';
 import { StyledLoading } from '../../../styles/SharedStyles';
+import { messageType } from '../../../utils/message-type';
 
 import {
 	StyledProfile,
@@ -57,9 +58,11 @@ export default function Profile() {
 					followers: data.followers,
 					html_url: data.html_url,
 				};
+				messageType('success', messages.success[0]);
 				setError(false);
 				setData(user);
 			} catch (error) {
+				messageType('error', messages.error[2]);
 				setError(true);
 			}
 		};
@@ -70,7 +73,7 @@ export default function Profile() {
 	return (
 		<>
 			{error ? (
-				<StyledLoading>User not found.</StyledLoading>
+				<StyledLoading>{messages.error[2]}</StyledLoading>
 			) : (
 				<StyledProfile>
 					<StyledProfilePic>

@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { VscLinkExternal } from 'react-icons/vsc';
+import { messages } from '../../../data/app-messages';
 
 import {
 	StyledLoadingRepository,
@@ -9,6 +10,7 @@ import {
 	StyledUserPage,
 	StyledWrapper,
 } from '../../../styles/SharedStyles';
+import { messageType } from '../../../utils/message-type';
 
 interface ProfileProps {
 	avatar_url: string;
@@ -56,9 +58,11 @@ export default function Search() {
 					public_repos: data.public_repos,
 				};
 
+				messageType('success', messages.success[1]);
 				setError(false);
 				setData(user);
 			} catch (error) {
+				messageType('error', messages.error[2]);
 				setError(true);
 			}
 		};
@@ -70,7 +74,7 @@ export default function Search() {
 		<>
 			{error ? (
 				<StyledLoadingRepository>
-					User not found!
+					{messages.error[2]}
 				</StyledLoadingRepository>
 			) : (
 				<StyledUserPage>
